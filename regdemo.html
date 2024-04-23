@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Responsive Registration Form | CodingLab </title>
+    <link rel="stylesheet" href="d.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container">
+    <div class="title">INCOMING Practical/Oral Examination ENTRY FORM</div>
+    <div class="content">
+      <form action="" method="POST">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Is Final Year Exam </span>
+            <select name="yesno" id="yes/no">
+              <option value="yes">YES</option>
+              <option value="no">NO</option>
+</select>
+</div>
+
+<div class="input-box">
+            <span class="details">Semester </span>
+            <select name="sem" id="sem">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+</select>
+</div>
+
+<div class="input-box">
+            <span class="details">Subject Name</span>
+            <input type="text" placeholder="Enter subject name"  name="sub">
+          </div>
+ 
+ <div class="input-box">
+            <span class="details">Subject code</span>
+            <input type="text"  name="code">
+          </div>
+ 
+    <div class="input-box">
+            <span class="details">Exam Type </span>
+            <select name="exam" id="sem">
+<option value="EPR">External-PR</option>
+<option value="IPR">Internal-PR</option>
+<option value="EOR">External-Oral</option>
+<option value="IOR">External-Oral</option>
+
+</select>
+</div>
+
+ 
+<div class="input-box">
+            <span class="details">No of Candidates </span>
+            <input type="text" name="candidate" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Name of Internal Examiner</span>
+            <input type="text"  name="int" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Name of Expert Assistant</span>
+            <input type="text" name="expert" >
+          </div>
+          <div class="input-box">
+            <span class="details">Course</span>
+            <input type="text" placeholder="IT" name="course" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Master code/Scheme</span>
+            <input type="text" placeholder="G"  name="schema" required>
+          </div>
+         
+ 
+ <div class="input-box">
+            <span class="details">Date of Examination</span>
+            <input type="date" id="date" name="date">
+          </div>
+ 
+ <div class="input-box">
+            <span class="details">Duration/Session of Exam</span>
+            <select name="dur" id="sem">
+<option value="mor">Morning</option>
+<option value="ar">Afternoon</option>
+</select>
+</div>
+ 
+ <div class="input-box">
+            <span class="details">Name of Lab Asst/Instructor</span>
+            <input type="text" name="lab">
+          </div>
+ 
+ <div class="input-box">
+            <span class="details">Name of Peon</span>
+            <input type="text" name="peon" >
+          </div>
+ 
+ <div class="input-box">
+            <span class="details">Name of External Examiner</span>
+            <input type="text" name="examiner" >
+          </div>
+ <div class="input-box">
+            <span class="details">Inst Code of External Examiner</span>
+            <input type="text"   name="codeex" required>
+          </div>
+ 
+ 
+        </div>
+       
+        <div class="button">
+          <input type="submit"     value="Save" name="set">
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
+<?php 
+include("connect.php");
+?>
+
+<?php
+
+if(isset($_POST["set"]))
+{
+ $final=$_POST['yesno'];
+ $semester=$_POST['sem'];
+ $subject=$_POST['sub'];
+ $subode=$_POST['code'];
+ $Exam=$_POST['exam'];
+ $Candidate=$_POST['candidate'];
+ $Internal=$_POST['int'];
+ $Expert=$_POST['expert'];
+ $course=$_POST['course'];
+ $code=$_POST['schema'];
+ $date=$_POST['date'];
+ $duration=$_POST['dur'];
+ $LabAssi=$_POST['lab'];
+ $Peon=$_POST['peon'];
+ $exteral=$_POST['examiner'];
+ $InstCode=$_POST['codeex'];
+
+    if($final!="" && $semester!="" && $subject!="" && $subode!="" && $Exam!="" && $Candidate!="" && $Internal!="" && $Expert!="" && $course!="" && $code!="" && $date!="" && $duration!="" && $LabAssi!="" && $Peon!="" && $exteral!="" && $InstCode!=""){
+
+    
+
+     $sql="INSERT into examinfo values('$final','$semester','$subject','$subode','$Exam','$Candidate','$Internal','$Expert','$course','$code','$date','$duration','$LabAssi','$Peon','$exteral','$InstCode')";
+     $result=mysqli_query($conn, $sql);
+
+     if($result)
+     {
+        echo"<script>alert('Record inserted successfully!!')</script>";
+        ?>
+
+     <meta http-equiv="refresh" content="0; URL=http://localhost/Billing/display.php" />
+        
+     <?php
+    }
+     else{
+        echo "Failed";
+     }
+    }
+    else{
+        echo "Please fill the form!!";
+    }
+}
+ ?>
+

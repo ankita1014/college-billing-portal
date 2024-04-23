@@ -1,0 +1,56 @@
+body{
+    background: #1690a7;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height: 100vh;
+}
+
+*{
+    font-family:  sans-serif;
+    box-sizing: border-box;
+}
+
+form{
+    width:500px;
+    border: 2px solid #ccc;
+    padding: 30px;
+    background: #fff;
+    border-radius: 15px;
+}
+
+h1{
+    text-align:center;
+    margin:100px;
+	 padding: 100px;
+	 font-family:Arial, Helvetica,sans-serif;
+
+}
+input{
+    display:block;
+    border: 2px solid #ccc;
+    width: 95%;
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 5px;
+
+}
+label{
+    color: #888;
+    font-size: 18px;
+    padding: 10px;
+}
+button{
+    float: center-right;
+    background: #555;
+    padding: 10px 25px;
+    color:#fff;
+border-radius: 15px;
+margin-right: 1px;
+margin:20px;
+border:none
+
+}
+button:hover{
+    opacity: .7;
+}
